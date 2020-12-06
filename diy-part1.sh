@@ -14,12 +14,12 @@
 #sed -i 's/^#\(.*helloworld\)/\1/' feeds.conf.default
 
 # Add a feed source
-#sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
+sed -i '$a src-git lienol https://github.com/Lienol/openwrt-package' feeds.conf.default
 
 
 sed -i "s/timezone='UTC'/timezone='CST-8'/" package/base-files/files/bin/config_generate
 sed -i "/timezone='CST-8'/a \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ set system.@system[-1].zonename='Asia/Shanghai'" package/base-files/files/bin/config_generate
-echo "src-git xiaorouji https://github.com/xiaorouji/openwrt-passwall" >> feeds.conf.default
+echo "src-git small https://github.com/xiaorouji/openwrt-passwall" >> feeds.conf.default
 echo "src-git others https://github.com/kenzok8/openwrt-packages" >> feeds.conf.default
 ./scripts/feeds clean
 ./scripts/feeds update -a
